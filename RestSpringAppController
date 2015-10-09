@@ -1,0 +1,58 @@
+package com.birlasoft.demo.app.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.birlasoft.demo.app.dao.PartDao;
+import com.birlasoft.demo.app.dto.PartDto;
+
+@RestController
+public class RestSpringAppController {
+
+	
+	@Autowired 
+	private PartDao partDao;
+	
+    @RequestMapping("add")
+    public String addition(@RequestParam("value1") int value1,@RequestParam("value2") int value2) {
+        return Integer.toString(value1+value2) ;
+    }
+    
+    @RequestMapping("sub")
+    public String sub(@RequestParam("value1") int value1,@RequestParam("value2") int value2) {
+        return Integer.toString(value1-value2) ; 
+    }
+    
+    @RequestMapping("hi")
+   public String home() {
+        return "Hello World!";
+    }
+    
+    @RequestMapping(value={"/loadPart"},produces=MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+   public List<PartDto> loadPart() {    
+    	List<PartDto> dtoList=partDao.loalPart(); 	
+        return dtoList;
+    }
+    
+    @RequestMapping(value={"/savePart"},produces=MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+   public String savePart() {    
+        return "save";
+    }
+    
+    
+    @RequestMapping(value={"/deletePart"},produces=MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String deletePart() {    
+    	
+        return "Deleted Successfully";
+    }
+    
+}
