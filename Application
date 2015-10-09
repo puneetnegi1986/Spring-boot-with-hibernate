@@ -1,0 +1,17 @@
+package com.birlasoft.root;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+
+
+@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
+@ComponentScan(basePackages = "com.birlasoft")
+
+public class Application {
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);	
+
+	}	
+}
