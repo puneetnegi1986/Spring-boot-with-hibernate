@@ -1,0 +1,58 @@
+package com.birlasoft.demo.app.dto;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+/**
+ * The primary key class for the PSS_PART database table.
+ * 
+ */
+@Embeddable
+public class PssPartPK implements Serializable {
+	
+	//default serial version id, required for serializable classes.
+	private static final long serialVersionUID = 1L;
+
+	@Column(name="PART_NUMBER")
+	private String partNumber;
+
+	@Column(name="SITE_CODE")
+	private String siteCode;
+
+	public PssPartPK() {
+	}
+	public String getPartNumber() {
+		return this.partNumber;
+	}
+	public void setPartNumber(String partNumber) {
+		this.partNumber = partNumber;
+	}
+	public String getSiteCode() {
+		return this.siteCode;
+	}
+	public void setSiteCode(String siteCode) {
+		this.siteCode = siteCode;
+	}
+
+	public boolean equals(Object other) {
+		if (this == other) {
+			return true;
+		}
+		if (!(other instanceof PssPartPK)) {
+			return false;
+		}
+		PssPartPK castOther = (PssPartPK)other;
+		return 
+			this.partNumber.equals(castOther.partNumber)
+			&& this.siteCode.equals(castOther.siteCode);
+	}
+
+	public int hashCode() {
+		final int prime = 31;
+		int hash = 17;
+		hash = hash * prime + this.partNumber.hashCode();
+		hash = hash * prime + this.siteCode.hashCode();
+		
+		return hash;
+	}
+}
