@@ -1,0 +1,12 @@
+package com.birlasoft.demo.app.dao;
+
+import java.util.List;
+
+import com.birlasoft.demo.app.dto.PartDto;
+
+public interface PartDao {
+	
+	public List<PartDto>loalPart();
+	public boolean addPart(PartDto partDto);
+
+}
