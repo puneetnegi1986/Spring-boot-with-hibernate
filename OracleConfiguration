@@ -1,0 +1,96 @@
+package com.birlasoft.root;
+
+import java.sql.SQLException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+
+@Configuration
+@ConfigurationProperties("spring.datasource")
+
+public class OracleConfiguration {
+
+	private String username;
+
+	private String password;
+
+	private String url;
+	
+	private String driverClass;
+	
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	@Bean
+	DataSource dataSource() throws SQLException {
+
+		System.out.println("Datasource is creating...");
+		BasicDataSource dataSource = new BasicDataSource();
+		
+		dataSource.setUsername(username);
+		dataSource.setPassword(password);
+		dataSource.setUrl(url);
+		dataSource.setDriverClassName(driverClass);
+		return dataSource;
+	}
+	
+	@Autowired
+	@Bean
+	public SessionFactory sessionFactory(DataSource dataSource) throws SQLException {
+		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
+		sessionBuilder.scanPackages("com.birlasoft.dmo.app.dto");
+		sessionBuilder.addProperties(getHibernateProperties());
+		 return sessionBuilder.buildSessionFactory();
+	}
+	
+	private Properties getHibernateProperties() {
+	    Properties properties = new Properties();
+	    properties.put("hibernate.show_sql", "true");
+	    properties.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
+	    return properties;
+	}
+
+	/**
+	 * @return the driverClass
+	 */
+	public String getDriverClass() {
+		return driverClass;
+	}
+
+	/**
+	 * @param driverClass the driverClass to set
+	 */
+	public void setDriverClass(String driverClass) {
+		this.driverClass = driverClass;
+	}
+	
+	
+	@Autowired
+	@Bean
+	public HibernateTransactionManager transactionManager(
+	        SessionFactory sessionFactory) {
+	    HibernateTransactionManager transactionManager = new HibernateTransactionManager(
+	            sessionFactory);
+	    return transactionManager;
+	}
+
+}
