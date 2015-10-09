@@ -1,0 +1,495 @@
+package com.birlasoft.demo.app.dto;
+
+import java.io.Serializable;
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.Date;
+
+
+/**
+ * The persistent class for the PSS_PART database table.
+ * 
+ */
+
+@Entity
+@Table(name="PSS_PART")
+public class PartDto implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@EmbeddedId
+	private PssPartPK id;
+
+	@Column(name="BULK_IND")
+	private BigDecimal bulkInd;
+
+	@Column(name="BULK_INVENTORY_LOCATION")
+	private String bulkInventoryLocation;
+
+	@Column(name="CARTON_INVENTORY_IND")
+	private BigDecimal cartonInventoryInd;
+
+	@Column(name="CELL_SIZE")
+	private String cellSize;
+
+	@Column(name="CFM_IND")
+	private BigDecimal cfmInd;
+
+	@Column(name="CHANGED_IND")
+	private BigDecimal changedInd;
+
+	@Column(name="CLEAN_IND")
+	private BigDecimal cleanInd;
+
+	@Column(name="CODE_8_CODE")
+	private String code8Code;
+
+	@Column(name="CODN_SICR_IND")
+	private BigDecimal codnSicrInd;
+
+	@Column(name="CYCLE_CLASS_CD")
+	private String cycleClassCd;
+
+	@Column(name="DEFAULT_AISLE")
+	private String defaultAisle;
+
+	@Column(name="DEFAULT_CELL_CAPACITY")
+	private BigDecimal defaultCellCapacity;
+
+	@Column(name="DEFAULT_LOCATION")
+	private String defaultLocation;
+
+	@Column(name="DETERMINED_DIMENSION")
+	private String determinedDimension;
+
+	@Column(name="DETERMINED_WEIGHT")
+	private String determinedWeight;
+
+	@Column(name="HOLD_SEQ_ID")
+	private BigDecimal holdSeqId;
+
+	@Column(name="INVENTORY_ADJUSTMENT_IND")
+	private BigDecimal inventoryAdjustmentInd;
+
+	@Column(name="ISSES_QUP")
+	private BigDecimal issesQup;
+
+	@Column(name="ISSES_SERIAL_IND")
+	private BigDecimal issesSerialInd;
+
+	@Column(name="KIT_CODE")
+	private String kitCode;
+
+	@Column(name="KIT_VALIDATION_IND")
+	private BigDecimal kitValidationInd;
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="LAST_CYCLE_COMPLETE_DATE")
+	private Date lastCycleCompleteDate;
+
+	@Column(name="MAINTENANCE_TYPE")
+	private String maintenanceType;
+
+	@Column(name="MEO_IND")
+	private BigDecimal meoInd;
+
+	@Column(name="NATIONAL_STOCK_NUMBER")
+	private String nationalStockNumber;
+
+	private String nomenclature;
+
+	@Column(name="PART_HEIGHT")
+	private BigDecimal partHeight;
+
+	@Column(name="PART_LENGTH")
+	private BigDecimal partLength;
+
+	@Column(name="PART_WEIGHT")
+	private BigDecimal partWeight;
+
+	@Column(name="PART_WIDTH")
+	private BigDecimal partWidth;
+
+	@Column(name="PLANNER_CD")
+	private String plannerCd;
+
+	@Column(name="PROCUREMENT_FAMILY")
+	private String procurementFamily;
+
+	@Column(name="SHIP_NOTIFICATION_IND")
+	private BigDecimal shipNotificationInd;
+
+	@Column(name="SHIPPING_SN_IND")
+	private BigDecimal shippingSnInd;
+
+	@Column(name="SHOP_COST")
+	private BigDecimal shopCost;
+
+	@Column(name="SOURCE_CODE")
+	private String sourceCode;
+
+	@Column(name="SPECIAL_HANDLING_IND")
+	private BigDecimal specialHandlingInd;
+
+	@Column(name="TAMMS_IND")
+	private BigDecimal tammsInd;
+
+	@Column(name="UNIT_OF_MEASURE_CODE")
+	private String unitOfMeasureCode;
+
+	@Column(name="VELOCITY_ZONE")
+	private String velocityZone;
+
+	@Column(name="WMS_DEFAULT_PUTAWAY_AREA")
+	private String wmsDefaultPutawayArea;
+
+	@Column(name="WORK_UNIT_CODE")
+	private String workUnitCode;
+
+	public PartDto() {
+	}
+
+	public PssPartPK getId() {
+		return this.id;
+	}
+
+	public void setId(PssPartPK id) {
+		this.id = id;
+	}
+
+	public BigDecimal getBulkInd() {
+		return this.bulkInd;
+	}
+
+	public void setBulkInd(BigDecimal bulkInd) {
+		this.bulkInd = bulkInd;
+	}
+
+	public String getBulkInventoryLocation() {
+		return this.bulkInventoryLocation;
+	}
+
+	public void setBulkInventoryLocation(String bulkInventoryLocation) {
+		this.bulkInventoryLocation = bulkInventoryLocation;
+	}
+
+	public BigDecimal getCartonInventoryInd() {
+		return this.cartonInventoryInd;
+	}
+
+	public void setCartonInventoryInd(BigDecimal cartonInventoryInd) {
+		this.cartonInventoryInd = cartonInventoryInd;
+	}
+
+	public String getCellSize() {
+		return this.cellSize;
+	}
+
+	public void setCellSize(String cellSize) {
+		this.cellSize = cellSize;
+	}
+
+	public BigDecimal getCfmInd() {
+		return this.cfmInd;
+	}
+
+	public void setCfmInd(BigDecimal cfmInd) {
+		this.cfmInd = cfmInd;
+	}
+
+	public BigDecimal getChangedInd() {
+		return this.changedInd;
+	}
+
+	public void setChangedInd(BigDecimal changedInd) {
+		this.changedInd = changedInd;
+	}
+
+	public BigDecimal getCleanInd() {
+		return this.cleanInd;
+	}
+
+	public void setCleanInd(BigDecimal cleanInd) {
+		this.cleanInd = cleanInd;
+	}
+
+	public String getCode8Code() {
+		return this.code8Code;
+	}
+
+	public void setCode8Code(String code8Code) {
+		this.code8Code = code8Code;
+	}
+
+	public BigDecimal getCodnSicrInd() {
+		return this.codnSicrInd;
+	}
+
+	public void setCodnSicrInd(BigDecimal codnSicrInd) {
+		this.codnSicrInd = codnSicrInd;
+	}
+
+	public String getCycleClassCd() {
+		return this.cycleClassCd;
+	}
+
+	public void setCycleClassCd(String cycleClassCd) {
+		this.cycleClassCd = cycleClassCd;
+	}
+
+	public String getDefaultAisle() {
+		return this.defaultAisle;
+	}
+
+	public void setDefaultAisle(String defaultAisle) {
+		this.defaultAisle = defaultAisle;
+	}
+
+	public BigDecimal getDefaultCellCapacity() {
+		return this.defaultCellCapacity;
+	}
+
+	public void setDefaultCellCapacity(BigDecimal defaultCellCapacity) {
+		this.defaultCellCapacity = defaultCellCapacity;
+	}
+
+	public String getDefaultLocation() {
+		return this.defaultLocation;
+	}
+
+	public void setDefaultLocation(String defaultLocation) {
+		this.defaultLocation = defaultLocation;
+	}
+
+	public String getDeterminedDimension() {
+		return this.determinedDimension;
+	}
+
+	public void setDeterminedDimension(String determinedDimension) {
+		this.determinedDimension = determinedDimension;
+	}
+
+	public String getDeterminedWeight() {
+		return this.determinedWeight;
+	}
+
+	public void setDeterminedWeight(String determinedWeight) {
+		this.determinedWeight = determinedWeight;
+	}
+
+	public BigDecimal getHoldSeqId() {
+		return this.holdSeqId;
+	}
+
+	public void setHoldSeqId(BigDecimal holdSeqId) {
+		this.holdSeqId = holdSeqId;
+	}
+
+	public BigDecimal getInventoryAdjustmentInd() {
+		return this.inventoryAdjustmentInd;
+	}
+
+	public void setInventoryAdjustmentInd(BigDecimal inventoryAdjustmentInd) {
+		this.inventoryAdjustmentInd = inventoryAdjustmentInd;
+	}
+
+	public BigDecimal getIssesQup() {
+		return this.issesQup;
+	}
+
+	public void setIssesQup(BigDecimal issesQup) {
+		this.issesQup = issesQup;
+	}
+
+	public BigDecimal getIssesSerialInd() {
+		return this.issesSerialInd;
+	}
+
+	public void setIssesSerialInd(BigDecimal issesSerialInd) {
+		this.issesSerialInd = issesSerialInd;
+	}
+
+	public String getKitCode() {
+		return this.kitCode;
+	}
+
+	public void setKitCode(String kitCode) {
+		this.kitCode = kitCode;
+	}
+
+	public BigDecimal getKitValidationInd() {
+		return this.kitValidationInd;
+	}
+
+	public void setKitValidationInd(BigDecimal kitValidationInd) {
+		this.kitValidationInd = kitValidationInd;
+	}
+
+	public Date getLastCycleCompleteDate() {
+		return this.lastCycleCompleteDate;
+	}
+
+	public void setLastCycleCompleteDate(Date lastCycleCompleteDate) {
+		this.lastCycleCompleteDate = lastCycleCompleteDate;
+	}
+
+	public String getMaintenanceType() {
+		return this.maintenanceType;
+	}
+
+	public void setMaintenanceType(String maintenanceType) {
+		this.maintenanceType = maintenanceType;
+	}
+
+	public BigDecimal getMeoInd() {
+		return this.meoInd;
+	}
+
+	public void setMeoInd(BigDecimal meoInd) {
+		this.meoInd = meoInd;
+	}
+
+	public String getNationalStockNumber() {
+		return this.nationalStockNumber;
+	}
+
+	public void setNationalStockNumber(String nationalStockNumber) {
+		this.nationalStockNumber = nationalStockNumber;
+	}
+
+	public String getNomenclature() {
+		return this.nomenclature;
+	}
+
+	public void setNomenclature(String nomenclature) {
+		this.nomenclature = nomenclature;
+	}
+
+	public BigDecimal getPartHeight() {
+		return this.partHeight;
+	}
+
+	public void setPartHeight(BigDecimal partHeight) {
+		this.partHeight = partHeight;
+	}
+
+	public BigDecimal getPartLength() {
+		return this.partLength;
+	}
+
+	public void setPartLength(BigDecimal partLength) {
+		this.partLength = partLength;
+	}
+
+	public BigDecimal getPartWeight() {
+		return this.partWeight;
+	}
+
+	public void setPartWeight(BigDecimal partWeight) {
+		this.partWeight = partWeight;
+	}
+
+	public BigDecimal getPartWidth() {
+		return this.partWidth;
+	}
+
+	public void setPartWidth(BigDecimal partWidth) {
+		this.partWidth = partWidth;
+	}
+
+	public String getPlannerCd() {
+		return this.plannerCd;
+	}
+
+	public void setPlannerCd(String plannerCd) {
+		this.plannerCd = plannerCd;
+	}
+
+	public String getProcurementFamily() {
+		return this.procurementFamily;
+	}
+
+	public void setProcurementFamily(String procurementFamily) {
+		this.procurementFamily = procurementFamily;
+	}
+
+	public BigDecimal getShipNotificationInd() {
+		return this.shipNotificationInd;
+	}
+
+	public void setShipNotificationInd(BigDecimal shipNotificationInd) {
+		this.shipNotificationInd = shipNotificationInd;
+	}
+
+	public BigDecimal getShippingSnInd() {
+		return this.shippingSnInd;
+	}
+
+	public void setShippingSnInd(BigDecimal shippingSnInd) {
+		this.shippingSnInd = shippingSnInd;
+	}
+
+	public BigDecimal getShopCost() {
+		return this.shopCost;
+	}
+
+	public void setShopCost(BigDecimal shopCost) {
+		this.shopCost = shopCost;
+	}
+
+	public String getSourceCode() {
+		return this.sourceCode;
+	}
+
+	public void setSourceCode(String sourceCode) {
+		this.sourceCode = sourceCode;
+	}
+
+	public BigDecimal getSpecialHandlingInd() {
+		return this.specialHandlingInd;
+	}
+
+	public void setSpecialHandlingInd(BigDecimal specialHandlingInd) {
+		this.specialHandlingInd = specialHandlingInd;
+	}
+
+	public BigDecimal getTammsInd() {
+		return this.tammsInd;
+	}
+
+	public void setTammsInd(BigDecimal tammsInd) {
+		this.tammsInd = tammsInd;
+	}
+
+	public String getUnitOfMeasureCode() {
+		return this.unitOfMeasureCode;
+	}
+
+	public void setUnitOfMeasureCode(String unitOfMeasureCode) {
+		this.unitOfMeasureCode = unitOfMeasureCode;
+	}
+
+	public String getVelocityZone() {
+		return this.velocityZone;
+	}
+
+	public void setVelocityZone(String velocityZone) {
+		this.velocityZone = velocityZone;
+	}
+
+	public String getWmsDefaultPutawayArea() {
+		return this.wmsDefaultPutawayArea;
+	}
+
+	public void setWmsDefaultPutawayArea(String wmsDefaultPutawayArea) {
+		this.wmsDefaultPutawayArea = wmsDefaultPutawayArea;
+	}
+
+	public String getWorkUnitCode() {
+		return this.workUnitCode;
+	}
+
+	public void setWorkUnitCode(String workUnitCode) {
+		this.workUnitCode = workUnitCode;
+	}
+
+}
