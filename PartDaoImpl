@@ -1,0 +1,55 @@
+package com.birlasoft.demo.app.daoImpl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
+import org.springframework.stereotype.Repository;
+
+import com.birlasoft.demo.app.dao.PartDao;
+import com.birlasoft.demo.app.dto.PartDto;
+
+@Repository
+public class PartDaoImpl implements PartDao {
+
+	@Autowired
+	protected DataSource dataSource;
+	
+	@Autowired
+	protected SessionFactory sessionFactory;
+	
+	@Autowired
+	HibernateTransactionManager transactionManager;
+	
+	protected ResultSet rs = null;
+	protected PreparedStatement pstmt = null;
+	protected Statement stmt = null;
+	protected Connection con;
+
+	@SuppressWarnings("unchecked")
+	public List<PartDto> loalPart() {
+
+		List<PartDto> dtoList = new ArrayList<PartDto>();
+		Session session=sessionFactory.openSession();
+		Query  query=session.createSQLQuery("select * from pss_part where rownum <10");
+		dtoList=query.list();
+		session.close();
+		return dtoList;
+	}
+
+	public boolean addPart(PartDto partDto) {
+
+		return false;
+	}
+
+}
